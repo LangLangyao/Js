@@ -1,0 +1,60 @@
+获取非行间样式：
+		function getStyle(element,attr) {         //element代表哪个元素，attr表示获取元素的哪个属性
+      		  if(window.getComputedStyle){
+          		  return window.getComputedStyle(element,false)[attr];
+    		    }else{
+      		      return element.currentStyle[attr];
+     		   }
+   		 }
+   		 var oBox = document.getElementById("box");
+   		 alert(getStyle(oBox,"width"))
+   		 alert(getStyle(oBox,"height"))
+获取元素实际宽高：
+	oBox.offsetHeight		//获取宽
+	oBox.offsetWidth		//获取高
+
+获取坐标：
+	document.onclick = function (evt) {
+	        var e = evt || window.event;
+	        console.log("可视区X轴坐标:" + e.clientX + "可视区X轴坐标:" + e.clientY);
+	        console.log("屏幕区X轴坐标:" + e.screenX + "屏幕区Y轴坐标:" + e.screenY);
+	}
+获取可视区域屏幕的宽度和高度：
+	document.body.clientWidth
+	document.body.clientHeight
+获取事件对象
+	 btn.onclick = function (event) {
+	       var e = event || window.event;
+ 	      console.log(e)
+  	  }
+事件冒泡：javaScript对先触发子容器监听事件，后触发父容器监听事件的现象称为事件冒泡；
+bubbles: 事件属性返回一个布尔值，如果事件是起泡类型，则返回 true，否则返回 fasle
+事件捕获：javaScript对先触发父容器监听事件，后触发子容器监听事件的现象称为事件捕获；
+阻止事件冒泡方法：
+	 function stopPro(evt){
+    	    var e = evt || window.event;
+      	  window.event ? e.cancelBubble = true : e.stopPropagation();
+   	 }
+阻止事件默认行为：
+	 function stopPrev(evt) {
+ 	       var e = evt || window.event;
+  	      window.event ? e.returnValue = false : e.preventDefault();
+  	  }
+获取事件行为：
+	function (event) {
+     	  var e = event || window.event;
+      	 alert(e.type);
+	}
+捕获当前事件作用的对象:
+	function getTarget(evt) {
+      	  var e = evt || window.event;
+     	   return e.target || e.srcElement;
+ 	   }	
+捕获当前事件作用的对象标签名：
+	function (event) {
+      	 var tElement = getTarget(event);
+    	   alert(tElement.tagName);
+	  alert(tElement.nodeName);
+	}
+事件委托：事件委托利用了事件冒泡，只指定一个事件处理程序，就可以管理某一类型的所有事件。例如，click事件会一直冒泡到document层次。
+	也就是说，我们可以为整个页面指定一个onclick事件处理程序，而不必给每个可单击的元素分别添加事件处理程序。

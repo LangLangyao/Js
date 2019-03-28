@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8" />
+		<title></title>
+		<style type="text/css">
+			body ul li div p span{margin: 0;padding: 0;}
+			input{width: 100px;}
+			ul{margin: 0;padding: 0; width:100px ;list-style: none;display: none;}
+			ul li{border: 1px solid black;margin-top: 1px;text-align: center; cursor: pointer;}
+		</style>
+	</head>
+	<body>
+		<input type="button" id="btn" value="输入法" />
+		<ul>
+			<li>搜狗输入法</li>
+			<li>百度输入法</li>
+			<li id="close">关闭</li>
+		</ul>
+	</body>
+</html>
+<script type="text/javascript">
+	//获取元素
+	var oBtn = document.getElementById("btn");//获取输入法按钮
+	var oClose = document.getElementById("close");//获取关闭按钮
+	var oUl = document.getElementsByTagName("ul");//获取ul盒子
+	//给按钮添加点击事件
+	oBtn.onclick = function(){
+		if(oUl[0].style.display == "block"){
+			Close();
+		}else{
+			oUl[0].style.display = "block"
+		}
+	}
+	oClose.onclick = Close;
+	//关闭ul的方法
+	function Close(){
+		oUl[0].style.display = "none";
+	}
+</script>

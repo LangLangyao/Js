@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+		<style type="text/css">
+			p{width: 200px;background: #57646E;text-align: center;margin: 0;padding: 0;cursor: pointer;}
+			ul{width: 200px;background: #eee;list-style: none;margin: 0;padding: 0;display: none;}
+			ul li a{color: black;text-decoration: none;}
+		</style>
+	</head>
+	<body>
+		<p id="p_on">播放列表</p>
+		<ul id="ul_on">
+			<li><a href="javascript:">玩家之徒 - 蔡依林</a></li>
+			<li><a href="javascript:">原谅我就是这样的女生 - 戴佩妮</a></li>
+			<li><a href="javascript:">猜不透 - 丁当</a></li>
+			<li><a href="javascript:">自导自演 - 周杰伦</a></li>
+			<li><a href="javascript:">浪漫窝 - 弦子</a></li>
+			<li><a href="javascript:">流年 - 王菲</a></li>
+		</ul>
+	</body>
+</html>
+<script type="text/javascript">
+	function getStyle(element,attr) {         //element代表哪个元素，attr表示获取元素的哪个属性
+	      	if(window.getComputedStyle){
+	          	return window.getComputedStyle(element,false)[attr];
+	    	}else{
+	      		return element.currentStyle[attr];
+	     	}
+	   	}
+	var op = document.getElementById("p_on");
+	var oul = document.getElementById("ul_on");
+	op.onclick = function(){
+		if(oul.style.display == "block"){
+			oul.style.display = "none"
+		}else{
+			oul.style.display = "block"
+		}
+	}
+</script>

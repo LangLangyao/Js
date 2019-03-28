@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+		<style>
+			body,p{margin:0;padding:0;}
+			body{color:#333;font:12px/1.5 Tahoma;padding-top:10px;}
+			#outer{width:300px;margin:0 auto;}
+			p{margin-bottom:10px;}
+			button{margin-right:5px;}
+			label{width:5em;display:inline-block;text-align:right;}
+			input{padding:3px;font-family:inherit;border:1px solid #ccc;}
+			.div1{color:#fff;width:180px;height:180px;background:#000;margin:0 auto;padding:10px;}
+		</style>
+	</head>
+	<body>
+		<div id="outer">
+		    <p><label>属性名：</label><input id="name" type="text" value="background"></p>
+		    <p><label>属性值：</label><input id="value" type="text" value="blue"></p>
+		    <p><label></label><button id="queding">确定</button><button id="chongzhi">重置</button></p>
+		</div>
+		<div id="div1" class="div1">在上方输入框输入"属性名"及"属性值"，点击确定按钮查看效果。</div>
+	</body>
+</html>
+<script type="text/javascript">
+	var oname = document.getElementById("name");
+	var ovalue = document.getElementById("value");
+	var oqueding = document.getElementById("queding");
+	var ochongzhi = document.getElementById("chongzhi");
+	var odiv1 = document.getElementById("div1");
+	oqueding.onclick = function(){
+		var a = oname.value;
+		var b = ovalue.value;
+		odiv1.style[a] = b;
+	}
+	ochongzhi.onclick = function(){
+		odiv1.removeAttribute("style");
+	}
+</script>

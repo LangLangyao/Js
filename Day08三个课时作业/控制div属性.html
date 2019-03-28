@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+		<style type="text/css">
+			.div_on{width: 100px; height: 100px; background: black;display: block;}
+		</style>
+	</head>
+	<body>
+		<input type="button" name="" id="ipt1" value="变宽" />
+		<input type="button" name="" id="ipt2" value="变高" />
+		<input type="button" name="" id="ipt3" value="变色" />
+		<input type="button" name="" id="ipt4" value="隐藏" />
+		<input type="button" name="" id="ipt5" value="重置" />
+		<div class="div_on">
+			
+		</div>
+	</body>
+</html>
+<script type="text/javascript">
+	var box = document.getElementsByClassName("div_on")[0];
+	var oIpt1 = document.getElementById("ipt1");
+	var oIpt2 = document.getElementById("ipt2");
+	var oIpt3 = document.getElementById("ipt3");
+	var oIpt4 = document.getElementById("ipt4");
+	var oIpt5 = document.getElementById("ipt5");
+	var a = box.style;
+	oIpt1.onclick = function(){
+		box.style.width = "200px";
+	}
+	oIpt2.onclick = function(){
+		box.style.height = "200px";
+	}
+	oIpt3.onclick = function(){
+		box.style.background = "red";
+	}
+	oIpt4.onclick = function(){
+		box.style.display = "none";
+	}
+	oIpt5.onclick = function(){
+		box.style = a;
+	}
+</script>

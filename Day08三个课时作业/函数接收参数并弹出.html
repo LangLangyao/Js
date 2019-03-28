@@ -1,0 +1,21 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+	</head>
+	<body>
+		<input type="text" name="" id="ipt1" value="北京市" />
+		<input type="text" name="" id="ipt2" value="朝阳区" />
+		<input type="button" id="btn" value="传参" />
+	</body>
+</html>
+<script type="text/javascript">
+	var oipt1 = document.getElementById("ipt1");
+	var oipt2 = document.getElementById("ipt2");
+	var obtn = document.getElementById("btn");
+	obtn.onclick = function(){
+		alert(oipt1.value);
+		alert(oipt2.value);
+	}
+</script>

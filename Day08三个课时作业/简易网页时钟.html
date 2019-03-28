@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+	</head>
+	<body>
+		<span id="shi"></span>
+		<span>时</span>
+		<span id="fen"></span>
+		<span>分</span>
+		<span id="miao"></span>
+		<span>秒</span>
+	</body>
+</html>
+<script type="text/javascript">
+	var shi = document.getElementById("shi");
+	var fen = document.getElementById("fen");
+	var miao = document.getElementById("miao");
+	var shijian = new Date;
+	function getTime(){
+		var oDate = new Date();
+		shi.innerHTML = oDate.getHours();
+		fen.innerHTML = oDate.getMinutes();
+		miao.innerHTML = oDate.getSeconds();
+	}
+	setInterval(getTime,1000);
+</script>

@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8" />
+		<title></title>
+		<style type="text/css">
+			body ul{
+				margin: 0;
+				padding: 0;
+			}
+			.ul_one{
+				width: 300px;
+				height: 30px;
+				list-style: none;
+				text-align: center;
+				line-height: 30px;	
+				background: gold;
+			}
+			.ul_one li{
+				width: 100px;
+				float: left;
+				cursor: pointer;	
+			}
+			.ul_one .li_one{
+				background: cyan;	
+			}
+			.ul_two{
+				width: 300px;
+				height: 100px;
+				border: 1px solid black;
+				
+			}
+			.ul_two li{
+				list-style: none;
+				text-align: center;
+				line-height: 100px;	
+				display: none;	
+			}
+			.ul_two .li_two{
+				display: block;
+			}
+		</style>
+	</head>
+	<body>
+		<ul class="ul_one">
+			<li class="li_one">选项卡1</li>
+			<li>选项卡2</li>
+			<li>选项卡3</li>
+		</ul>
+		<ul class="ul_two">
+			<li class="li_two">内容1</li>
+			<li>内容2</li>
+			<li>内容3</li>
+		</ul>
+	</body>
+	<script type="text/javascript">
+		var oul =  document.getElementsByClassName("ul_one")[0];
+		var oli = oul.getElementsByTagName("li");
+		var oul1 =  document.getElementsByClassName("ul_two")[0];
+		var oli1 = oul1.getElementsByTagName("li");
+		for(var i = 0;i<oli.length;i++){
+			oli[i].a = i;
+			oli[i].onmouseover = function(){
+				for(var i = 0;i<oli.length;i++){
+					oli[i].className = "";
+					oli1[i].className = "";
+				}
+				this.className = "li_one";
+				oli1[this.a].className = "li_two";
+			}
+		}
+	</script>
+</html>

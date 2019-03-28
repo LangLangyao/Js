@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+		<style type="text/css">
+			div{width: 100px; height: 100px;background: black;float: left;margin: 10px 10px;}
+		</style>
+	</head>
+	<body>
+		<p><input type="button" name="" id="ipt" value="点击将div变成红色" /></p>
+		<div></div>
+		<div></div>
+		<div></div>
+	</body>
+</html>
+<script type="text/javascript">
+	var odiv = document.getElementsByTagName("div");
+	var oipt = document.getElementById("ipt");
+	oipt.onclick = function(){
+		for(var i = 0;i<odiv.length;i++){
+			odiv[i].style.background = "red";
+		}
+	}
+</script>

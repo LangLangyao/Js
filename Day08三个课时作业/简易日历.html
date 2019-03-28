@@ -1,0 +1,86 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+		<style type="text/css">
+		body div ul li{
+			margin: 0;
+			padding: 0;
+		}
+			.ul_one{
+				width: 208px;
+				height: 155px;
+				list-style-type: none;
+				padding: 0;
+			}
+			.ul_one li{
+				width: 50px;
+				height: 50px;
+				text-align: center;
+				line-height: 50px;
+				float: left;
+				border: 1px solid black;
+			}
+			.ul_one .li_one{
+				background: cyan;
+			}
+			.div_one{
+				width: 208px;
+				height: 50px;
+				border: 1px solid black;
+				text-align: center;
+				line-height: 50px;
+			}
+		</style>
+	</head>
+	<body>
+		<ul class="ul_one">
+			<li class="li_one">1</li>
+			<li>2</li>
+			<li>3</li>
+			<li>4</li>
+			<li>5</li>
+			<li>6</li>
+			<li>7</li>
+			<li>8</li>
+			<li>9</li>
+			<li>10</li>
+			<li>11</li>
+			<li>12</li>
+		</ul>
+		<div class="div_one">
+			
+		</div>
+	</body>
+	<script type="text/javascript">
+		var arr = [
+			"一月",
+			"二月",
+			"三月",
+			"四月",
+			"五月",
+			"六月",
+			"七月",
+			"八月",
+			"九月",
+			"十月",
+			"十一月",
+			"十二月",
+		];
+		var oul = document.getElementsByClassName("ul_one")[0];
+		var oli = oul.getElementsByTagName("li");
+		var odiv = document.getElementsByClassName("div_one")[0];
+		odiv.innerHTML = arr[0];
+		for(var i=0;i<oli.length;i++){
+			oli[i].index = i;
+			oli[i].onmouseover = function(){
+				for(var i=0;i<oli.length;i++){
+					oli[i].className = "";
+				}
+				this.className = "li_one";
+				odiv.innerHTML = arr[this.index];
+			}	
+		}
+	</script>
+</html>

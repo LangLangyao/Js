@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+		<style type="text/css">
+			.div_on{width: 100%;height: 40px; border: 1px solid black;float: left;}
+			.div_on span{float: left;line-height: 40px;color: black;}
+			.div_on ul{margin: 0;padding: 0; list-style: none;float: left;}
+			.div_on ul #li_on{cursor: pointer; width: 20px; height: 20px; background-color: #2086b3;float: left;line-height: 40px;margin: 10px 10px;}
+			.div_on ul #li_tw{cursor: pointer;width: 20px; height: 20px; background-color: red;float: left;line-height: 40px;margin: 10px 10px;}
+			.div_on ul #li_th{cursor: pointer;width: 20px; height: 20px; background-color: #b7a37a;float: left;line-height: 40px;margin: 10px 10px;}
+			.div_tw{width: 500px;height: 250px;border: 5px solid #2086b3;float: left;margin-top: 50px;}
+			.div_th{width: 100%;height: 250px;background-color: #2086b3;float: left;margin-top: 100px;}
+		</style>
+	</head>
+	<body>
+		<div class="div_on">
+			<span>请选择颜色风格：</span>
+			<ul>
+				<li id="li_on"></li>
+				<li id="li_tw"></li>
+				<li id="li_th"></li>
+			</ul>
+		</div>
+		<div class="div_tw" id="box">
+			
+		</div>
+		<div class="div_th" id="box_th">
+			
+		</div>
+	</body>
+</html>
+<script type="text/javascript">
+	var li_on = document.getElementById("li_on");
+	var li_tw = document.getElementById("li_tw");
+	var li_th = document.getElementById("li_th");
+	var box = document.getElementById("box");
+	var box2 = document.getElementById("box_th");
+	function getStyle(element,attr) {         //element代表哪个元素，attr表示获取元素的哪个属性
+      	if(window.getComputedStyle){
+          	return window.getComputedStyle(element,false)[attr];
+    	}else{
+      		return element.currentStyle[attr];
+     	}
+   	}
+	li_on.onclick = function(){
+		box.style.border = "5px solid " + getStyle(li_on,"background-color");
+		box2.style.background = getStyle(li_on,"background-color");
+	}
+	li_tw.onclick = function(){
+		box.style.border = "5px solid " + getStyle(li_tw,"background-color");
+		box2.style.background = getStyle(li_tw,"background-color");
+	}
+	li_th.onclick = function(){
+		box.style.border = "5px solid " + getStyle(li_th,"background-color");
+		box2.style.background = getStyle(li_th,"background-color");
+	}
+</script>

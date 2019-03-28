@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+		<style type="text/css">
+			#p_on{width: 200px;}
+			#p_tw{width: 200px;background: yellow;font-size: 15px;display: none;}
+		</style>
+	</head>
+	<body>
+		<p id="p_on">
+			<input type="checkbox" name="" id="" value="" />
+			<span>两周内自动登陆</span>
+		</p>
+		<p id="p_tw">为了您的信息安全，请不要在网吧或公用电脑上使用此功能！</p>
+	</body>
+</html>
+<script type="text/javascript">
+	var op = document.getElementById("p_on");
+	var op1 = document.getElementById("p_tw")
+	op.onmouseover = function(){
+		op1.style.display = "block";
+	}
+	op.onmouseout = function(){
+		op1.style.display = "none";
+	}
+</script>

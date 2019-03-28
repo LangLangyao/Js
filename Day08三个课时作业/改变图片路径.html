@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title>改变图片路径</title>
+	</head>
+	<style>
+		*{margin:0;padding:0;}
+		img{border:0;border-radius:3px;}
+		ul{list-style:none;}
+		#box{width:212px;border: 1px solid #CCCCCC;overflow:hidden;background:#ccc;border-radius:5px;margin:10px auto;padding:0 0 3px 3px;}
+		#box li,#box li img{float:left;width:50px;height:50px;}
+		#box li{margin:3px 3px 0 0;}
+		#box li.first{position:relative;}
+		#box li.first,#box li.first img{width:156px;height:156px;}
+		#box li.first div{position:absolute;top:0;left:0;width:156px;height:156px;display:none;opacity:0.5;filter:alpha(opacity=50);background:#fff url(img/loading.gif) 50% 50% no-repeat;}
+	</style>
+	<body>
+		<ul id="box">
+		    <li class="first"><img src="img/small_1.jpg"><div style="display: block;"></div></li>
+		    <li><img src="img/small_1.jpg"></li>
+		    <li><img src="img/small_2.jpg"></li>
+		    <li><img src="img/small_3.jpg"></li>
+		    <li><img src="img/small_4.jpg"></li>
+		    <li><img src="img/small_5.jpg"></li>
+		    <li><img src="img/small_6.jpg"></li>
+		    <li><img src="img/small_7.jpg"></li>
+		    <li><img src="img/small_8.jpg"></li>
+		    <li><img src="img/small_9.jpg"></li>
+		    <li><img src="img/small_10.jpg"></li>
+		    <li><img src="img/small_11.jpg"></li>
+		</ul>
+	</body>
+</html>
+<script type="text/javascript">
+	//获取li标签
+	var oLi = document.getElementsByTagName("li");
+	//获取图片元素
+	var oImg = document.getElementsByTagName("img");
+	//循环遍历除去第一个li标签的其余所有标签
+	for (var i = 1 ; i < oLi.length ; i++) {
+		//创建伪属性保存当前值
+		oImg[i].index = i;
+		//给每一项img添加点击事件
+		oImg[i].onclick = function(){
+			//第一项的图片路径就等于点击的图片路径
+			oImg[0].src = oImg[this.index].src;
+		}
+	}
+</script>

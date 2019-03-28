@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+		<style type="text/css">
+			.p_on{
+				font-size: 20px;
+				color: black;
+			}
+		</style>
+	</head>
+	<body>
+		<input type="text" name="" id="in_value" value="2" />
+		<button id="btn">求和</button>
+		<br />
+		<p class="p_on">0</p>
+	</body>
+	<script type="text/javascript">
+		var oinput = document.getElementById("in_value");
+		var obtn = document.getElementById("btn");
+		var op = document.getElementsByClassName("p_on")[0];	
+		obtn.onclick = function(){
+			var ovalue = oinput.value;
+			var arr = ovalue.split(",");
+			var sum = 0;
+			for(var i=0;i<arr.length;i++){
+				sum += parseInt(arr[i]);
+			}
+			op.innerHTML = sum;
+		}
+	</script>
+</html>

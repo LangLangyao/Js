@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+		<style type="text/css">
+			.p_on{
+				width: 200px;
+				height: 40px;
+				text-align: center;
+				line-height: 40px;
+				border: 1px solid black;
+			}
+			.div_one{
+				width: 200px;
+				height: 200px;
+				border: 1px solid black;
+				text-align: center;
+				display: block;
+			}
+		</style>
+	</head>
+	<body>
+		<p class="p_on">显示/隐藏</p>
+		<div class="div_one">
+			<p>玩家之徒 - 蔡依林</p>
+			<p>玩家之徒 - 蔡依林</p>
+			<p>玩家之徒 - 蔡依林</p>
+			<p>玩家之徒 - 蔡依林</p>
+			<p>玩家之徒 - 蔡依林</p>
+		</div>
+	</body>
+	<script type="text/javascript">
+		var op = document.getElementsByClassName("p_on")[0];
+		var odiv = document.getElementsByClassName("div_one")[0];
+		op.onclick = function(){
+			if(odiv.style.display == "block"){
+				odiv.style.display = "none";
+			}else{
+				odiv.style.display = "block";
+			}
+		}
+	</script>
+</html>

@@ -1,0 +1,117 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8" />
+		<title></title>
+		<style type="text/css">
+		html,body,p,span,ul,li,input{margin: 0;padding: 0;}
+			.box{width: 384px;margin:0 auto;margin-bottom: 30px;text-align: center;overflow: hidden;}
+			.box input{float: left;}
+			.box .ul_on{float: left;list-style: none;margin: 0 20px;}
+			.box .ul_on li{width: 20px;height: 20px;float: left;text-align: center;margin-left: 10px;}
+			.box .ul_on .active{background-color: red;color: white;}
+			.Abox{width: 70%;margin: 20px auto 30px;}
+			.Abox .Aul{width: 330px;list-style: none;margin: 0 10px 20px 10px;float: left;}
+			.Abox .Aul img{width: 330px;height: 250px;}
+		</style>
+	</head>
+	<body>
+		<div class="Abox">
+			<!--<ul class="Aul">
+				<li><img src="http://img.boqiicdn.com/Data/BK/P/img22101406708896.jpg"/></li>
+				<li>Name:腊肠犬</li>
+				<li>engName:Dachshund</li>
+				<li>Price:2000起</li>
+			</ul>-->
+		</div>
+		<div class="box">
+			<input type="button" name="" id="shang" value="上一页" />
+			<ul class="ul_on">
+				<li class="active">1</li>
+				<li>2</li>
+				<li>3</li>
+				<li>4</li>
+				<li>5</li>
+				<li>6</li>
+				<li>7</li>
+				<li>8</li>
+			</ul>
+			<input type="button" name="" id="xia" value="下一页" />
+		</div>
+	</body>
+</html>
+<script src="js/ajax.js" type="text/javascript" charset="utf-8"></script>
+<script type="text/javascript">
+	//获取分页里的ul标签
+	var oul = document.getElementsByClassName("ul_on")[0];
+	//获取分页的li标签
+	var oli = oul.getElementsByTagName("li");
+	//获取狗所在的大盒子
+	var Abox = document.getElementsByClassName("Abox")[0];
+	//页面刚载入先发送一次ajax请求，获取第一页的内容
+	ajax({
+		url:"https://api.apishop.net/common/dogFamily/queryDogList",//发送请求的地址
+		method : "get",//以git方式发送
+		//请求的数据
+		data :{
+			apiKey : "B6f9YAn0025be549732e9a4bc2c1ade25c9c69a0b21dcda",
+			page : 1,//第一页
+			pageSize : 12,//请求12个数据
+		},
+		//返回的数据
+		success : function(response){
+			var data = JSON.parse(response).result.petFamilyList;//将请求到的数据由json转换为对象
+			console.log(data);
+			for(var i=0;i<data.length;i++){
+				var ul = document.createElement("ul");//创建ul标签
+				ul.className = "Aul";//标签名为Aul
+				//编写li标签
+				var str = " <li><img src=" + data[i].coverURL +" alt=></li>\n" +
+            "        <li class=name>name : "+ data[i].name +"</li>\n" +
+            "        <li class=engName>engName :" + data[i].engName +"</li>\n" +
+            "        <li class=price>price :"+ data[i].price +"</li>";
+				ul.innerHTML = str;//ul的内容为编写的li
+				Abox.appendChild(ul);//将ul添入Abox盒子
+			}
+		},
+		async : true//异步
+	})
+	//便利所有的页数标签
+	for(var i = 0;i<oli.length;i++){
+		oli[i].index = i;
+		oli[i].onclick = function(){//给每一页绑定点击事件
+			for(var i = 0;i<oli.length;i++){
+				oli[i].className = "";//排他
+			}
+			this.className = "active";//确立自己
+			var that = this;
+			if((this.index+1)!=1){//进行判断，如果不是第一页的话再发送ajax请求
+				ajax({
+				url:"https://api.apishop.net/common/dogFamily/queryDogList",
+				method : "get",
+				data :{
+					apiKey : "B6f9YAn0025be549732e9a4bc2c1ade25c9c69a0b21dcda",
+					page : that.index+1,//请求的页数为当前点击页数下标+1；
+					pageSize : 12,
+				},
+				success : function(response){
+					Abox.innerHTML = "";
+					var data = JSON.parse(response).result.petFamilyList;
+					console.log(data);
+					for(var i=0;i<data.length;i++){
+						var ul = document.createElement("ul");
+						ul.className = "Aul";
+						var str = " <li><img src=" + data[i].coverURL +" alt=></li>\n" +
+                    "        <li class=name>name : "+ data[i].name +"</li>\n" +
+                    "        <li class=engName>engName :" + data[i].engName +"</li>\n" +
+                    "        <li class=price>price :"+ data[i].price +"</li>";
+						ul.innerHTML = str;
+						Abox.appendChild(ul);
+					}
+				},
+				async : true
+			})
+			}	
+		}
+	}
+</script>

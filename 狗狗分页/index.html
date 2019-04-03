@@ -47,7 +47,7 @@
 	var Abox = document.getElementsByClassName("Abox")[0];//获取狗所在的大盒子
 	var oshang = document.getElementById("shang");//获取上一页按钮
 	var oxia = document.getElementById("xia");//获取下一页按钮
-	var num = 0;
+	var num = 0;//定义一个全局变量num作为点击改变li标签的索引值
 	//页面刚载入先发送一次ajax请求，获取第一页的内容
 	ajax({
 		url:"https://api.apishop.net/common/dogFamily/queryDogList",//发送请求的地址
@@ -110,8 +110,6 @@
 			})	
 		}
 	}
-	
-
 	//便利所有的页数标签
 	for(var i = 0;i<oli.length;i++){
 		oli[i].index = i;
@@ -120,6 +118,7 @@
 			huan(num);
 		}
 	}
+	//给上一页添加点击事件
 	oshang.onclick = function(){
 		num--;
 		if(num<0){
@@ -127,6 +126,7 @@
 		}
 		huan(num);
 	}
+	//给下一页添加点击事件
 	oxia.onclick = function(){
 		num++;
 		if(num>oli.length-1){

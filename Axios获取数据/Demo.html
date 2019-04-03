@@ -1,0 +1,91 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title>移动端(Axios获取数据并展示)</title>
+		<script src="https://unpkg.com/axios/dist/axios.min.js"></script>
+		<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/Swiper/4.0.2/css/swiper.min.css">
+		<style type="text/css">
+			html, body {
+    			position: relative;
+    			height: 100%;
+			}
+			body {
+			   	background: #eee;
+			   	font-family: Helvetica Neue, Helvetica, Arial, sans-serif;
+			    font-size: .14rem;
+			    color:#000;
+			    margin: 0;
+			    padding: 0;
+			}
+			.swiper-container {
+			    width: 100%;
+			    height: 100%;
+			    margin-left: auto;
+			    margin-right: auto;
+			}
+			.swiper-slide {
+				width: 100%;
+				text-align: center;
+				font-size: .18rem;
+				background: #fff;
+				display: -webkit-box;
+				display: -ms-flexbox;
+				display: -webkit-flex;
+				display: flex;
+				/*-webkit-box-pack: center;
+				-ms-flex-pack: center;
+				-webkit-justify-content: center;
+				justify-content: center;
+				-webkit-box-align: center;
+				-ms-flex-align: center;
+				-webkit-align-items: center;
+				align-items: center;*/
+			}
+			#FenYe{bottom: 2rem;}
+			#btn{width: 100%;height: .4rem;overflow: hidden;}
+			#YuYue{width: 1rem; height: .4rem;font-size: .16rem;position: absolute;bottom: .5rem;}
+			#Bay{width: 1rem; height: .4rem;font-size: .16rem;position: absolute;bottom: .5rem;}
+			img{width: 100%;height: 30%;float: left;}
+			p{float: left;width: 100%;font-size: 3rem;}
+			h3{float: left; width: 100%;font-size: 5rem;}
+		</style>
+	</head>
+	<body>
+		<!-- Swiper -->
+	  	<div class="swiper-container">
+		    <div class="swiper-wrapper">
+		      <div class="swiper-slide">
+		      </div>
+		      <div class="swiper-slide"></div>
+		      <div class="swiper-slide"></div>
+		    </div>
+		    <!-- Add Pagination -->
+		    <div class="swiper-pagination" id="FenYe"></div>
+	  	</div>
+	</body>
+</html>
+<!--<script type="text/javascript" src="js/Axios.js"></script>-->
+<script src="https://cdnjs.cloudflare.com/ajax/libs/Swiper/4.0.2/js/swiper.min.js"></script>
+<script type="text/javascript">
+		var odiv = document.getElementsByClassName("swiper-slide");
+		var oimg = document.getElementById("img_on");
+		axios.get("https://resources.ninghao.net/wxapp-case/db.json?type=slides").then(function(response){
+			for(var i=0;i<response.data.slides.length;i++){
+				var Upper = response.data.slides[i].sub_header.toUpperCase();
+            odiv[i].innerHTML = "<div><img src='"+response.data.slides[i].image+"' />"+"<p>"+Upper+"</p>"+"<h3>"+response.data.slides[i].header+"</h3>"
+            +"<p>"+response.data.slides[i].description+"</p>"+"<button>"+"预约试驾"+"</button>"+"</div>";
+			}
+		})
+	
+	
+	
+	
+	var swiper = new Swiper('.swiper-container', {
+      	spaceBetween: 30,
+      	pagination: {
+	        el: '.swiper-pagination',
+	        clickable: true,
+    	}
+	});
+</script>

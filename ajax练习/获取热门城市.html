@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8" />
+		<title></title>
+	</head>
+	<body>
+		<input type="button" name="" id="btn" value="点击获取热门城市" />
+		
+	</body>
+</html>
+<script src="js/ajax.js" type="text/javascript" charset="utf-8"></script>
+<script type="text/javascript">
+	var btn = document.getElementById("btn");
+	ajax({
+		url : "https://elm.cangdu.org/v1/cities",
+		method : "get",
+		data : {
+			type : "hot"
+		},
+		success : function(response){
+			console.log(response);
+		},
+		async : true
+	})
+</script>

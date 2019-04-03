@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8" />
+		<title></title>
+		<style type="text/css">
+			.div_one{
+				width: 100px;
+				height: 100px;
+				border: 1px solid black;
+			}
+			.div_one .p_on{
+				font-size: 30px;
+				text-align: center;
+			}
+		</style>
+	</head>
+	<body>
+		<div class="div_one">
+			<p class="p_on"></p>
+		</div>
+		<input type="button" id="start" value="开始" />
+		<input type="button" id="end" value="停止" />
+		<p class="p_tw"></p>
+	</body>
+	<script type="text/javascript">
+		var ostart = document.getElementById("start");
+		var oend = document.getElementById("end");
+		var op = document.getElementsByClassName("p_on")[0];
+		var op2 = document.getElementsByClassName("p_tw")[0];
+		var num = 0;
+		function getrandom(min,max){
+			return num = parseInt(Math.random()*(max-min+1)+min);
+			
+		}
+		var timp;
+		ostart.onclick = function(){
+			timp = setInterval(function(){
+				op.innerHTML = getrandom(1,6);
+			},10)
+		};
+		oend.onclick = function(){
+			clearInterval(timp);
+			if(op.innerHTML>3){
+				op2.innerHTML = "大";
+			}else{
+				op2.innerHTML = "小";
+			}
+			
+		}
+		
+	</script>
+</html>

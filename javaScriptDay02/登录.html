@@ -1,0 +1,105 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+		<style type="text/css">
+			.div_one{
+				z-index:999;
+				width: 200px;
+				height: 200px;
+				background: cyan;
+				position: absolute;
+				margin: auto;
+				left: 0;
+				top: 0;
+				right: 0;
+				bottom: 0;
+				display: none;
+			}
+			.div_one .p_one{
+				margin: 0;
+				padding: 0;
+				width: 100%;
+				background-color: #eee;
+			}
+			.div_one .p_one .s_on{
+				font-size: 20px;
+				margin-left: 35%;
+			}
+			.div_one .p_one .s_tw{
+				margin-left: 25%;
+			}
+			#inner{
+			z-index:1; 
+			display: none; 
+			width:100%; 
+			height:100%; 
+			opacity: 0.3; 
+			filter: alpha(opacity=30); 
+			background: #000;
+			position: absolute; 
+			left:0; 
+			top:0;
+			}
+		</style>
+	</head>
+	<body>
+		<input type="button" name="" id="btn" value="登录" />
+		<div class="div_one">
+			<p class="p_one">
+				<span class="s_on">登录</span>
+				<span class="s_tw">关闭</span>
+			</p>
+		</div>
+		<div id="inner">
+			
+		</div>
+		<p>赶紧敲代码</p>
+		<p>赶紧敲代码</p>
+		<p>赶紧敲代码</p>
+		<p>赶紧敲代码</p>
+		<p>赶紧敲代码</p>
+		<p>赶紧敲代码</p>
+		<p>赶紧敲代码</p>
+		<p>赶紧敲代码</p>
+		<p>赶紧敲代码</p>
+		<p>赶紧敲代码</p>
+		<p>赶紧敲代码</p>
+		<p>赶紧敲代码</p>
+		<p>赶紧敲代码</p>
+		<p>赶紧敲代码</p>
+		<p>赶紧敲代码</p>
+		<p>赶紧敲代码</p>
+		<p>赶紧敲代码</p>
+		<p>赶紧敲代码</p>
+		<p>赶紧敲代码</p>
+		<p>赶紧敲代码</p>
+		<p>赶紧敲代码</p>
+		<p>赶紧敲代码</p>
+		<p>赶紧敲代码</p>
+		<p>赶紧敲代码</p>
+		<p>赶紧敲代码</p>
+		<p>赶紧敲代码</p>
+		<p>赶紧敲代码</p>
+		<p>赶紧敲代码</p>
+		<p>赶紧敲代码</p>
+		<p>赶紧敲代码</p>
+	</body>
+	<script type="text/javascript">
+		var obtn = document.getElementById("btn");//获取登录按钮
+		var odiv = document.getElementsByClassName("div_one")[0];//获取页面中间盒子
+		var oguan = document.getElementsByClassName("s_tw")[0]; //获取关闭的span
+		var oinner = document.getElementById("inner");			//获取阴影盒子
+		obtn.onclick = function(){			//给按钮添加点击事件
+			odiv.style.display = "block";	//登录盒子样式改为显示
+			oinner.style.display = "block";	//阴影状态为显示
+			document.body.style.overflow = "hidden";	//将页面锁定，不带滚动条
+		}
+		oguan.onclick = function(){			//给关闭的标签添加点击事件
+			odiv.style.display = "none";	//样式改为隐藏
+			oinner.style.display = "none";	//阴影状态为隐藏
+			document.body.style.overflow = "auto";//将页面解锁定
+		}
+	</script>
+</html>

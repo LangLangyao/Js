@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+		<style type="text/css">
+			#btn{
+				width: 200px;
+				height: 40px;
+				font-size: 15px;
+			}
+		</style>
+	</head>
+	<body>
+		<input type="button" id="btn" value="发送短信验证码" />
+	</body>
+	<script type="text/javascript">
+		var obtn = document.getElementById("btn");
+		var num = 3;
+		var timp;
+		obtn.onclick = function(){
+			obtn.value = num+"秒后重新发送";//给点击后的input设置value
+			obtn.disabled = true;//锁定input
+			timp = setInterval(function(){//添加延时器
+				num--;
+				obtn.value = num+"秒后重新发送";//设置点击后的改变内容
+				if(num==0){
+					obtn.value = "发送短信验证码";
+					obtn.disabled = false;
+					num=3;
+					clearInterval(timp);
+				}
+			},1000)
+		}
+	</script>
+</html>

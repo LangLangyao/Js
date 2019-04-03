@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+		<style type="text/css">
+		#input_one{
+			color: #ccc;
+		}
+		</style>
+	</head>
+	<body>
+		<input type="" name="" id="input_one" value="123..." />
+		<!--<input type="button" name="" id="" value="" />-->
+	</body>
+	<script type="text/javascript">
+		var oinput = document.getElementById("input_one");
+		oinput.onfocus = function(){
+			if (oinput.value == "123...") {
+				oinput.value = "";
+				oinput.style.color = "black";
+			}
+		}
+		oinput.onblur = function(){
+			if (oinput.value == "") {
+				oinput.value = "123...";
+				oinput.style.color = "#ccc";
+			}
+		}
+	</script>
+</html>

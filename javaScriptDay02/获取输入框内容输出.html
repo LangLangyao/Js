@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+		<style type="text/css">
+			.div_one{
+				width: 200px;
+				height: 200px;
+				border: 1px solid red;
+				position: absolute;
+				margin: auto;
+				left: 0;
+				right: 0;
+				top: 0;
+				bottom: 0;
+			}
+		</style>
+	</head>
+	<body>
+		<input type="" name="" id="shuru" value="" />
+		<input type="button" name="" id="btn" value="点击" />
+		<div class="div_one">
+			
+		</div>
+	</body>
+	<script type="text/javascript">
+		var oshuru = document.getElementById("shuru");
+		var obtn = document.getElementById("btn");
+		var odiv = document.getElementsByClassName("div_one")[0];
+		obtn.onclick = function(){
+			odiv.innerHTML += oshuru.value;
+			oshuru.value = "";
+		}
+	</script>
+</html>

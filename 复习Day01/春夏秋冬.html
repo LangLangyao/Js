@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+		<style type="text/css">
+			body{background: url(img/chun.jpg)no-repeat;}
+		</style>
+	</head>
+	<body>
+		<select id="myselect">
+			<option value="">春意绵绵</option>
+			<option value="">夏日炎炎</option>
+			<option value="">秋声瑟瑟</option>
+			<option value="">冬雪皑皑</option>
+		</select>
+	</body>
+</html>
+<script type="text/javascript">
+	window.onload = function(){
+		var myselect = document.getElementById("myselect");
+		myselect.onchange = function(){
+			var index=myselect.selectedIndex ; // selectedIndex代表的是你所选中项的index
+			var zhi = myselect.options[index].text;
+			if(zhi == "春意绵绵"){
+				document.body.style.background = "url(img/chun.jpg)"
+			}else if(zhi == "夏日炎炎"){
+				document.body.style.background = "url(img/xia.jpg)"
+			}else if(zhi == "秋声瑟瑟"){
+				document.body.style.background = "url(img/qiu.jpg)"
+			}else if(zhi == "冬雪皑皑"){
+				document.body.style.background = "url(img/dong.jpg)"
+			}
+		}	
+	}
+
+//	var index=myselect.selectedIndex ; // selectedIndex代表的是你所选中项的index
+//	var zhi = myselect.options[index].text;
+//	if(zhi == "春意绵绵"){
+//		body.style.background = 
+//	}else if(zhi == "夏日炎炎"){
+//		num.innerHTML = parseInt(num1.value) - parseInt(num2.value);
+//	}else if(zhi == "秋声瑟瑟"){
+//		num.innerHTML = parseInt(num1.value) * parseInt(num2.value);
+//	}else if(zhi == "冬雪皑皑"){
+//		num.innerHTML = parseInt(num1.value) / parseInt(num2.value);
+//	}
+</script>

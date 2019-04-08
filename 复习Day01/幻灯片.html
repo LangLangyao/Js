@@ -1,0 +1,99 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+		<style type="text/css">
+			body,div,p,span,ul,li{
+				margin: 0;
+				padding: 0;
+			} 
+			.div_on{
+				width: 500px;
+				height: 281px;
+			}
+			.div_on ul{
+				list-style: none;
+				width: 100%;
+			}
+			.div_on ul li{
+				display: none;
+				position: absolute;
+				top: 0;
+				display: none;
+			}
+			.div_on ul .li_on{
+				display: block;
+			}
+			.div_on ul .li_on img{
+				width: 500px;
+			}
+			.div_on ul li img{
+				width: 500px;
+			}
+			.div_on #zuo{
+				display: block;
+				width: 20px;
+				height: 70px;
+				line-height: 70px;
+				text-align: center;
+				font-size: 18px;
+				background: cyan;
+				position: absolute;
+				top: 100px;
+			}
+			.div_on #you{
+				display: block;
+				width: 20px;
+				height: 70px;
+				line-height: 70px;
+				text-align: center;
+				font-size: 18px;
+				background: cyan;
+				position: absolute;
+				top: 100px;
+				left: 480px;
+			}
+		</style>
+	</head>
+	<body>
+		<div class="div_on">
+			<ul>
+				<li class="li_on"><img src="img/chun.jpg"/></li>
+				<li><img src="img/xia.jpg"/></li>
+				<li><img src="img/qiu.jpg"/></li>
+				<li><img src="img/dong.jpg"/></li>
+			</ul>
+			<span id="zuo"><</span>
+			<span id="you">></span>
+		</div>
+	</body>
+</html>
+<script type="text/javascript">
+	var oli = document.getElementsByTagName("li");
+	var left = document.getElementById("zuo");
+	var right = document.getElementById("you");
+	var index = 0;
+	function huan(index){
+		for(var i=0;i<oli.length;i++){
+			for(var i=0;i<oli.length;i++){
+				oli[i].className = "";
+			}
+			oli[index].className = "li_on";
+		}
+	}
+	left.onclick = function(){
+		index--;
+		if(index<0){
+			index = oli.length-1;
+		}
+		huan(index);
+	}
+	right.onclick = function(){
+		index++;
+		if(index>oli.length-1){
+			index = 0;
+		}
+		huan(index);
+	}
+</script>

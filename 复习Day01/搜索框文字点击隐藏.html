@@ -1,0 +1,19 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+	</head>
+	<body>
+		<input type="" name="" id="btn" value="请输入..." />
+	</body>
+</html>
+<script type="text/javascript">
+	var obtn = document.getElementById("btn");
+	obtn.onfocus = function(){
+		obtn.value = "";
+	}
+	obtn.onblur = function(){
+		obtn.value = "请输入...";
+	}
+</script>

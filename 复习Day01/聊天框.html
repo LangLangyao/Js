@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+		<style type="text/css">
+			.box{
+				width: 598px;
+				height: 535px;
+				background: url(img/chat.png);
+			}
+			.box .div_on{
+				width: 399px;
+				height: 333px;
+				position: absolute;
+				top: 89px;
+			}
+			.box .div_tw{
+				width: 399px;
+				height: 85px;
+				position: absolute;
+				top: 457px;
+			}
+			.box .div_tw #neirong{
+				width: 395px;
+				height: 80px;
+				opacity: 0.5;
+			}
+			.box .div_tw #btn{
+				width: 63px;
+				position: absolute;
+				top: 51px;
+				left: 299px;
+				opacity: 0.1;
+			}
+			.div_on p{
+            padding-left: 40px;
+	        }
+	        .div_on span{
+	            color: red;
+	        }
+		</style>
+	</head>
+	<body>
+		<div class="box">
+			<div class="div_on">
+				
+			</div>
+			<div class="div_tw">
+				<input type="" name="" id="neirong" value="" />
+				<input type="button" name="" id="btn" value="" />
+			</div>
+		</div>
+	</body>
+</html>
+<script type="text/javascript">
+window.onload = function(){
+	var obox = document.getElementsByClassName("div_on")[0];
+	var oinput = document.getElementById("neirong");
+	var obtn = document.getElementById("btn");
+	var name = "老王";
+	obtn.onclick = function(){
+		obox.innerHTML =obox.innerHTML + "<span>" + name +"</span>" + "<p>" + oinput.value + "</p>";
+		oinput.value = "";
+	}
+}
+	
+</script>

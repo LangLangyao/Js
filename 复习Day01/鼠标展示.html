@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+		<style type="text/css">
+			body,div,p,span,ul,li{margin: 0;padding: 0;}
+			.box{
+				width: 360px;
+				height: 434px;
+				border: 1px solid black;
+			}
+			.box #max .ul1{
+				list-style: none;
+			}
+			.box #max .ul1 li{
+				display: none;
+			}
+			.box #max .ul1 .li_on{
+				display: block;
+			}
+			.box #min .ul2{
+				list-style: none;
+			}
+			.box #min .ul2 li{
+				float: left;
+			}
+		</style>
+	</head>
+	<body>
+		<div class="box">
+			<div id="max">
+				<ul class="ul1">
+					<li class="li_on"><img src="img/01big.jpg"/></li>
+					<li><img src="img/02big.jpg"/></li>
+					<li><img src="img/03big.jpg"/></li>
+					<li><img src="img/04big.jpg"/></li>
+					<li><img src="img/05big.jpg"/></li>
+				</ul>
+			</div>
+			<div id="min">
+				<ul class="ul2">
+					<li><img src="img/01.jpg"/></li>
+					<li><img src="img/02.jpg"/></li>
+					<li><img src="img/03.jpg"/></li>
+					<li><img src="img/04.jpg"/></li>
+					<li><img src="img/05.jpg"/></li>
+				</ul>
+			</div>
+		</div>
+	</body>
+</html>
+<script type="text/javascript">
+	var oul1 = document.getElementsByClassName("ul1")[0];
+	var datu = oul1.getElementsByTagName("li");
+	var oul2 = document.getElementsByClassName("ul2")[0];
+	var xiaotu = oul2.getElementsByTagName("li");
+	for(var i=0;i<xiaotu.length;i++){
+		xiaotu[i].index = i;
+		xiaotu[i].onmousemove =function(){
+			for(var i=0;i<xiaotu.length;i++){
+				datu[i].className = "";
+			}
+			datu[this.index].className = "li_on";
+		}
+	}
+</script>

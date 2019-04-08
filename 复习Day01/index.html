@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8" />
+		<title></title>
+	</head>
+	<body>
+		<input type="" name="" id="num1" value="" />
+		<select id="yunsuan">
+			<option value="">+</option>
+			<option value="">-</option>
+			<option value="">*</option>
+			<option value="">/</option>
+		</select>
+		<input type="" name="" id="num2" value="" />
+		<span id="zhi"></span>
+		<input type="button" name="" id="btn" value="求值" />
+	</body>
+</html>
+<script type="text/javascript">
+//	var num1 = document.getElementById("num1");
+//	var num2 = document.getElementById("num2");
+//	var num = document.getElementById("zhi");
+//	var btn = document.getElementById("btn");
+//	var myselect = document.getElementById("yunsuan");
+//	btn.onclick = function(){
+//		var index=myselect.selectedIndex ; // selectedIndex代表的是你所选中项的index
+//		var yunsuan = myselect.options[index].text;
+//		if(yunsuan == "+"){
+//			num.innerHTML = parseInt(num1.value) + parseInt(num2.value);
+//		}else if(yunsuan == "-"){
+//			num.innerHTML = parseInt(num1.value) - parseInt(num2.value);
+//		}else if(yunsuan == "*"){
+//			num.innerHTML = parseInt(num1.value) * parseInt(num2.value);
+//		}else if(yunsuan == "/"){
+//			num.innerHTML = parseInt(num1.value) / parseInt(num2.value);
+//		}
+//	}
+		function outer(){
+			var a = 333;
+			function inner(){
+				console.log(a);
+			}
+			return inner;
+		}
+outer();
+		inn(); //弹出333
+</script>

@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+		<style type="text/css">
+			.box{
+				width: 200px;
+				height: 100px;
+				background: cyan;
+				display: none;
+			}
+			.box #close{
+				margin-left: 90%;
+			}
+		</style>
+	</head>
+	<body>
+		<input type="button" name="btn" id="btn" value="登录" />
+		<div class="box">
+			<p id="close">×</p>
+		</div>
+	</body>
+</html>
+<script type="text/javascript">
+	var btn = document.getElementById("btn");
+	var oclose = document.getElementById("close");
+	var obox = document.getElementsByClassName("box")[0];
+	oclose.onclick = function(){
+		obox.style.display = "none";
+	}
+	btn.onclick = function(){
+		obox.style.display = "block";
+	}
+</script>
